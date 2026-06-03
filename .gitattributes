@@ -1,0 +1,4 @@
+.gitattributes text eol=lf
+*.go text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

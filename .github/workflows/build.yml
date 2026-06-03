@@ -44,8 +44,13 @@ jobs:
       - name: Format check
         shell: bash
         run: |
-          files="$(gofmt -l $(git ls-files '*.go'))"
-          if [ -n "$files" ]; then
+          mapfile -t go_files < <(git ls-files '*.go')
+          if ((${#go_files[@]} == 0)); then
+            exit 0
+          fi
+
+          files="$(gofmt -l "${go_files[@]}")"
+          if [[ -n "$files" ]]; then
             echo "The following Go files need gofmt:"
             echo "$files"
             exit 1
