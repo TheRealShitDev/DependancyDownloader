@@ -27,9 +27,6 @@ jobs:
           - os: windows-latest
             artifact: dependancy-downloader-windows
             binary: dependancy-downloader-windows-amd64.exe
-          - os: macos-latest
-            artifact: dependancy-downloader-macos
-            binary: dependancy-downloader-darwin-amd64
 
     steps:
       - name: Checkout
